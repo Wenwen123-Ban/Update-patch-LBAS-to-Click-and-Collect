@@ -1336,3 +1336,35 @@ nav .nav-link:hover {
 #editModal .btn-close {
     filter: invert(1) !important;
 }
+
+/* ── LBAS v8.5 UI STABILIZATION APPENDED RULES ── */
+
+/* Standardize all inputs inside dark modals for perfect readability */
+.modal-content .form-control, 
+.modal-content .form-select {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 8px !important;
+}
+
+/* Prevent text from falling back to Bootstrap dark gray on dark cards */
+.modal-content label, 
+.modal-content .text-muted, 
+.modal-content p {
+    color: rgba(241, 245, 249, 0.8) !important;
+}
+
+/* Ensure modal headers stay bright and crisp */
+.modal-title {
+    color: #f8fafc !important;
+    font-weight: 600;
+}
+
+/* Smooth hover transitions for action buttons */
+.btn-secondary, .btn-danger, .btn-primary {
+    transition: all 0.2s ease-in-out !important;
+}
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+}
