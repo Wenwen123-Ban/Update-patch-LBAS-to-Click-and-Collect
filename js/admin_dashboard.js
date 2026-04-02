@@ -116,6 +116,7 @@ let editModal;
 
         mountAdminDropdown();
         bindDashboardDelegatedEvents();
+        switchView('users');
         document.getElementById('newsPostImage')?.addEventListener('change', syncNewsUploadPreview);
         document.getElementById('newsUploadPreview')?.addEventListener('click', () => {
             const src = document.getElementById('newsUploadPreview')?.getAttribute('src');
@@ -693,9 +694,12 @@ let editModal;
     window.clearUserFilters = clearUserFilters;
 
     function renderUsersList() {
-        const query = document.getElementById('userSearch').value.toLowerCase();
-        const typeFilter = document.getElementById('userTypeFilter').value;
+        const searchInput = document.getElementById('userSearch');
+        const typeSelect = document.getElementById('userTypeFilter');
         const tbody = document.getElementById('usersListBody');
+        if (!searchInput || !typeSelect || !tbody) return;
+        const query = searchInput.value.toLowerCase();
+        const typeFilter = typeSelect.value;
         let combined = [...masterUsers.map(u => ({...u, type: 'student'})), ...masterAdmins.map(a => ({...a, type: 'admin'}))];
         const filtered = combined.filter(u => (String(u.name||'').toLowerCase().includes(query) || String(u.school_id||'').toLowerCase().includes(query)) && (typeFilter === 'all' || u.type === typeFilter));
 
@@ -1079,6 +1083,10 @@ let editModal;
         try {
             const res = await apiFetch('/api/login', { method: 'POST', body: JSON.stringify({ school_id: u, password: p, id_only: false }) }, false);
             const data = await res.json();
+            if (data.success && data.profile && !data.profile.is_staff) {
+                window.location.href = '/lbas';
+                return;
+            }
             if(data.success && data.profile.is_staff) {
                 localStorage.setItem('isStaffAuth', 'true');
                 localStorage.setItem('adminName', data.profile.name);
@@ -1174,6 +1182,7 @@ let editModal;
         if (link) link.style.display = 'block';
         const linkDateRestrictions = document.getElementById('linkDateRestrictions');
         if (linkDateRestrictions) linkDateRestrictions.style.display = 'block';
+        switchView('users');
         addHistory(`System Unlocked by: ${name}`);
         loadData(true);
     }
