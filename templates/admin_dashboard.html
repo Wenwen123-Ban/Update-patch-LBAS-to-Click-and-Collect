@@ -100,10 +100,10 @@
     </div>
     
     <nav class="nav flex-column gap-2">
-        <a class="nav-link text-white active" id="linkConsole" onclick="switchView('console')">
+        <a class="nav-link text-white-50" id="linkConsole" onclick="switchView('console')">
             <span><i class="fas fa-laptop-code me-3"></i>Dashboard</span>
         </a>
-        <a class="nav-link text-white-50" id="linkUsers" onclick="switchView('users')">
+        <a class="nav-link text-white active" id="linkUsers" onclick="switchView('users')">
             <span><i class="fas fa-users-cog me-3"></i>User Directory</span>
         </a>
         <a class="nav-link text-white-50" id="linkRegistrationRequests" onclick="switchView('registrationRequests')">
@@ -192,7 +192,7 @@
         </div>
     </div>
 
-    <div id="consoleView" class="view-section active">
+    <div id="consoleView" class="view-section">
         <div class="row g-4">
             <div class="col-lg-6">
                 <div class="card glass-card p-4 h-100 border-0 shadow-sm">
@@ -340,60 +340,12 @@
         </div>
     </div>
 
-    <div id="usersView" class="view-section">
+    <div id="usersView" class="view-section active">
         <div class="card glass-card p-4">
-            <div class="mb-3">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <div>
-                        <h5 class="fw-bold mb-0"><i class="fas fa-database text-primary me-2"></i>Master User Database</h5>
-                        <p class="small text-muted mb-0">Read-only directory of registered users</p>
-                    </div>
-                    <input type="text" id="userSearch" class="form-control" style="width:220px;background:rgba(30,41,59,0.85);color:#f1f5f9;border:1px solid rgba(255,255,255,0.2);border-radius:8px;" placeholder="🔍 Search name or ID..." onkeyup="renderUsersList()">
-                </div>
-                <!-- Filter row -->
-                <div class="d-flex gap-2 flex-wrap align-items-center">
-                    <select id="userTypeFilter" class="form-select form-select-sm" style="width:auto;min-width:130px;background:rgba(30,41,59,0.85);color:#f1f5f9;border:1px solid rgba(255,255,255,0.18);border-radius:8px;" onchange="renderUsersList()">
-                        <option value="all" style="background:#1e293b;">👥 All Roles</option>
-                        <option value="student" style="background:#1e293b;">🎓 Students</option>
-                        <option value="admin" style="background:#1e293b;">🔑 Admins</option>
-                    </select>
-                    <select id="userYearFilter" class="form-select form-select-sm" style="width:auto;min-width:130px;background:rgba(30,41,59,0.85);color:#f1f5f9;border:1px solid rgba(255,255,255,0.18);border-radius:8px;" onchange="renderUsersList()">
-                        <option value="all" style="background:#1e293b;">📅 All Years</option>
-                        <option value="1" style="background:#1e293b;">1st Year</option>
-                        <option value="2" style="background:#1e293b;">2nd Year</option>
-                        <option value="3" style="background:#1e293b;">3rd Year</option>
-                        <option value="4" style="background:#1e293b;">4th Year</option>
-                        <option value="7" style="background:#1e293b;">Grade 7</option>
-                        <option value="8" style="background:#1e293b;">Grade 8</option>
-                        <option value="9" style="background:#1e293b;">Grade 9</option>
-                        <option value="10" style="background:#1e293b;">Grade 10</option>
-                    </select>
-                    <select id="userCourseFilter" class="form-select form-select-sm" style="width:auto;min-width:150px;background:rgba(30,41,59,0.85);color:#f1f5f9;border:1px solid rgba(255,255,255,0.18);border-radius:8px;" onchange="renderUsersList()">
-                        <option value="all" style="background:#1e293b;">📚 All Courses</option>
-                    </select>
-                    <button class="btn btn-sm" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.6);border-radius:8px;" onclick="clearUserFilters()" title="Clear all filters">
-                        <i class="fas fa-times me-1"></i>Clear
-                    </button>
-                    <span id="userCountBadge" class="ms-auto badge" style="background:rgba(99,102,241,0.2);color:#a5b4fc;border:1px solid rgba(99,102,241,0.35);font-size:0.75rem;padding:5px 10px;border-radius:6px;">0 users</span>
-                </div>
-            </div>
-            <div class="table-responsive" style="font-size:0.82rem;">
-                <table class="table table-hover align-middle mb-0" style="min-width:760px;">
-                    <thead style="background:rgba(255,255,255,0.08);">
-                        <tr class="small text-uppercase" id="userTableHead">
-                            <th class="ps-3">Photo</th>
-                            <th class="sortable-col" data-col="school_id" style="cursor:pointer;user-select:none;">ID Number <span class="sort-icon">⇅</span></th>
-                            <th class="sortable-col" data-col="name" style="cursor:pointer;user-select:none;">Full Name <span class="sort-icon">⇅</span></th>
-                            <th class="sortable-col" data-col="year_level" style="cursor:pointer;user-select:none;">Year <span class="sort-icon">⇅</span></th>
-                            <th class="sortable-col" data-col="course" style="cursor:pointer;user-select:none;">Course <span class="sort-icon">⇅</span></th>
-                            <th>Contact</th>
-                            <th class="sortable-col" data-col="type" style="cursor:pointer;user-select:none;">Role <span class="sort-icon">⇅</span></th>
-                            <th>Status</th>
-                            <th class="text-center pe-3">Remove</th>
-                        </tr>
-                    </thead>
-                    <tbody id="usersListBody"></tbody>
-                </table>
+            <div class="planning-state">
+                <i class="fas fa-screwdriver-wrench" aria-hidden="true"></i>
+                <h5 class="fw-bold mb-0">User Management</h5>
+                <p class="planning-label mb-0">User Management Module: Structural Planning Phase</p>
             </div>
         </div>
     </div>
