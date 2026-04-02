@@ -1,0 +1,60 @@
+[
+  {
+    "name": "Developer",
+    "school_id": "Dev",
+    "password": "12345",
+    "role": "admin",
+    "status": "approved",
+    "photo": "avatar_owl.svg",
+    "is_staff": true,
+    "category": "Staff",
+    "phone_number": "09262148086",
+    "email": "Dev@nmsc.edu.ph",
+    "year_level": "",
+    "school_level": "",
+    "course": ""
+  },
+  {
+    "name": "LIBRARIAN(TEST)",
+    "password": "12345",
+    "category": "Staff",
+    "school_id": "12345",
+    "photo": "avatar_owl.svg",
+    "status": "approved",
+    "is_staff": true,
+    "phone_number": "09915066793",
+    "email": "12345@nmsc.edu.ph",
+    "year_level": "",
+    "school_level": "",
+    "course": ""
+  },
+  {
+    "name": "GUD GUD",
+    "school_id": "898989",
+    "password": "12345",
+    "category": "Staff",
+    "photo": "avatar_owl.svg",
+    "status": "approved",
+    "is_staff": true,
+    "phone_number": "09376569042",
+    "email": "898989@nmsc.edu.ph",
+    "year_level": "",
+    "school_level": "",
+    "course": ""
+  },
+  {
+    "name": "Jujitsu",
+    "school_id": "454545",
+    "password": "456",
+    "category": "Staff",
+    "photo": "avatar_owl.svg",
+    "date_joined": "2026-01-30",
+    "status": "approved",
+    "is_staff": true,
+    "phone_number": "09633133859",
+    "email": "454545@nmsc.edu.ph",
+    "year_level": "",
+    "school_level": "",
+    "course": ""
+  }
+]
